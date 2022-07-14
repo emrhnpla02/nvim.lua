@@ -1,6 +1,5 @@
 local fn = vim.fn
 
--- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -15,7 +14,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -23,13 +21,11 @@ vim.cmd([[
   augroup end
 ]])
 
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
 	display = {
 		open_fn = function()
@@ -39,19 +35,15 @@ packer.init({
 })
 
 return packer.startup(function(use)
-	use("wbthomason/packer.nvim") -- Have packer manage itself
+	use("wbthomason/packer.nvim")
 
-	-- Colorschemes
 	use("arcticicestudio/nord-vim")
 	use("kwsp/halcyon-neovim")
 
-	-- Transparency
 	use("xiyaowong/nvim-transparent")
 
-	-- Cursor flashing
 	use("rainbowhxch/beacon.nvim")
 
-	-- Completion & Snippets
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -69,7 +61,6 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- Lsp
 	use({
 		"neovim/nvim-lspconfig",
 		"williamboman/nvim-lsp-installer",
@@ -82,16 +73,13 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- Dap
 	use({
 		"mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",
 	})
 
-	-- Test
 	use("David-Kunz/jester")
 
-	-- Telescope
 	use({
 		{
 			{
@@ -110,7 +98,6 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- Treesitter
 	use({
 		{
 			"nvim-treesitter/nvim-treesitter",
@@ -120,7 +107,6 @@ return packer.startup(function(use)
 		"windwp/nvim-ts-autotag",
 	})
 
-	-- Rust
 	use({
 		"simrat39/rust-tools.nvim",
 		{
@@ -128,36 +114,29 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- ReactJS
 	use("napmn/react-extract.nvim")
 
-	-- Autopairs
 	use("windwp/nvim-autopairs")
 
 	use("kylechui/nvim-surround")
 
-	-- Comment
 	use({
 		"numToStr/Comment.nvim",
 		"JoosepAlviste/nvim-ts-context-commentstring",
 	})
 
-	-- Colorizer
 	use("norcalli/nvim-colorizer.lua")
 
-	-- Git
 	use({
 		"lewis6991/gitsigns.nvim",
 		"akinsho/git-conflict.nvim",
 	})
 
-	-- Nvimtree
 	use({
 		"kyazdani42/nvim-tree.lua",
 		"kyazdani42/nvim-web-devicons",
 	})
 
-	-- Bufferline
 	use({
 		{
 			"akinsho/bufferline.nvim",
@@ -167,7 +146,6 @@ return packer.startup(function(use)
 		"famiu/bufdelete.nvim",
 	})
 
-	-- Lualine
 	use({
 		{
 			"nvim-lualine/lualine.nvim",
@@ -176,55 +154,39 @@ return packer.startup(function(use)
 		"SmiteshP/nvim-gps",
 	})
 
-	-- Indentline
 	use("lukas-reineke/indent-blankline.nvim")
 
-	-- Cursorline
 	use("yamatsum/nvim-cursorline")
 
-	-- Symbols-Outline
 	use("simrat39/symbols-outline.nvim")
 
-	-- Toggleterm
 	use("akinsho/toggleterm.nvim")
 
-	--  Project
 	use("ahmedkhalf/project.nvim")
 
-	-- Impantient
 	use("lewis6991/impatient.nvim")
 
-	-- Alpha
 	use({
 		"goolord/alpha-nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
 
-	-- Whichkey
 	use("folke/which-key.nvim")
 
-	-- Markdown
 	use("ellisonleao/glow.nvim")
 
-	-- Hop
-	use({ "phaazon/hop.nvim", branch = "v1" })
+	use({ "phaazon/hop.nvim" })
 
-	-- Neoscroll
 	use("karb94/neoscroll.nvim")
 
-	-- Hlslens
 	use({ "kevinhwang91/nvim-hlslens" })
 
-	-- Fold
 	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
 
-	-- Iswap
 	use("mizlan/iswap.nvim")
 
-	-- Numb
 	use("nacro90/numb.nvim")
 
-	-- Regexplainer
 	use({
 		"bennypowers/nvim-regexplainer",
 		requires = {
@@ -237,11 +199,8 @@ return packer.startup(function(use)
 		"potamides/pantran.nvim",
 	})
 
-	-- Tmux
 	use("aserowy/tmux.nvim")
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
