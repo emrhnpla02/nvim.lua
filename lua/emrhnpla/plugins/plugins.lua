@@ -134,6 +134,8 @@ return packer.startup(function(use)
 	-- Autopairs
 	use("windwp/nvim-autopairs")
 
+	use("kylechui/nvim-surround")
+
 	-- Comment
 	use({
 		"numToStr/Comment.nvim",
