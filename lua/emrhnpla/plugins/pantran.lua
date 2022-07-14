@@ -22,5 +22,3 @@ pantran.setup({
 		},
 	},
 })
-
-require("nvim-surround").setup()
