@@ -42,7 +42,8 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
 	-- Colorschemes
-	use("arcticicestudio/nord-vim") -- Nord colorscheme
+	use("arcticicestudio/nord-vim")
+	use("kwsp/halcyon-neovim")
 
 	-- Transparency
 	use("xiyaowong/nvim-transparent")
