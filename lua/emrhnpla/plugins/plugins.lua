@@ -233,6 +233,10 @@ return packer.startup(function(use)
 		},
 	})
 
+	use({
+		"potamides/pantran.nvim",
+	})
+
 	-- Tmux
 	use("aserowy/tmux.nvim")
 
