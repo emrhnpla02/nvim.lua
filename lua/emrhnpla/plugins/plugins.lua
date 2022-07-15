@@ -199,6 +199,8 @@ return packer.startup(function(use)
 		"potamides/pantran.nvim",
 	})
 
+  use {'Mofiqul/trld.nvim'}
+
 	use("aserowy/tmux.nvim")
 
 	if PACKER_BOOTSTRAP then
