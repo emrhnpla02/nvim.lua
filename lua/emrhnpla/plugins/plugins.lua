@@ -199,7 +199,9 @@ return packer.startup(function(use)
 		"potamides/pantran.nvim",
 	})
 
-  use {'Mofiqul/trld.nvim'}
+	use("Mofiqul/trld.nvim")
+
+	use("j-hui/fidget.nvim")
 
 	use("aserowy/tmux.nvim")
 
