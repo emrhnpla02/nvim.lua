@@ -107,6 +107,8 @@ return packer.startup(function(use)
 		"windwp/nvim-ts-autotag",
 	})
 
+  use "rcarriga/nvim-notify"
+
 	use({
 		"simrat39/rust-tools.nvim",
 		{
