@@ -68,13 +68,9 @@ local mappings = {
 	["h"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lsp Finder" },
 	["c"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
 	["T"] = { "<cmd>lua require('jester').run_file()<CR>", "Run current file" },
-	["r"] = {
+	["R"] = {
 		"<cmd>:Lspsaga rename<CR>",
 		"Rename",
-	},
-	["R"] = {
-		"<cmd>lua require('regexplainer').show{display = 'popup', popup={border = {padding = { 1, 2 }, style = 'solid'}}}<CR>",
-		"Regex Explainer",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 	["o"] = { "<cmd>SymbolsOutline<CR>", "Symbols" },
@@ -152,6 +148,27 @@ local mappings = {
 		},
 		I = { "<cmd>lua require('dap').repl.open({}, 'vsplit')<CR>", "Inspect" },
 		e = { "<cmd>lua require('dap').set_exception_breakpoints({'all'})<CR>", "Set exception breakpoints" },
+	},
+	r = {
+		name = "Rust",
+		m = {
+			name = "Move",
+			u = { "<cmd>RustMoveItemUp<CR>", "Move Item Up" },
+			d = { "<cmd>RustMoveItemDown<CR>", "Move Item Down" },
+		},
+		h = { "<cmd>RustToggleInlayHints<CR>", "Toggle Inlay Hints" },
+		r = { "<cmd>RustRunnables<CR>", "Runnables" },
+		d = { "<cmd>RustDebuggables<CR>", "Debuggables" },
+		e = { "<cmd>RustExpandMacro<CR>", "Expand Macro" },
+		a = { "<cmd>RustHoverActions<CR>", "Hover Actions" },
+		j = { "<cmd>RustJoinLines<CR>", "Join Lines" },
+		c = { "<cmd>RustOpenCargo<CR>", "Open Cargo.toml" },
+		p = { "<cmd>RustParentModule<CR>", "Parent Module" },
+		w = { "<cmd>RustReloadWorkspace<CR>", "Reload Workspace" },
+		g = { "<cmd>RustViewCrateGraph<CR>", "View Crate Graph" },
+		D = { "<cmd>RustOpenExternalDocs<CR>", "Open External Docs" },
+		s = { "<cmd>RustSSR<CR>", "Structural Search Replace" },
+		b = { "<cmd>RustStartStandaloneServerForBuffer<CR>", "Start Standalone Server for Buffer" },
 	},
 	j = {
 		t = { "<cmd>lua require('jester').run()<CR>", "Run nearest test(s) under the cursor" },
