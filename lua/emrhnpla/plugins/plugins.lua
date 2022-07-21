@@ -217,6 +217,8 @@ return packer.startup(function(use)
 
 	use("folke/todo-comments.nvim")
 
+  use("folke/trouble.nvim")
+
 	use("folke/zen-mode.nvim")
 
 	if PACKER_BOOTSTRAP then

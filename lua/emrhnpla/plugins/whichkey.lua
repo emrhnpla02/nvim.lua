@@ -67,7 +67,7 @@ local mappings = {
 	["a"] = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
 	["h"] = { "<cmd>Lspsaga lsp_finder<CR>", "Lsp Finder" },
 	["c"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
-	["T"] = { "<cmd>lua require('jester').run_file()<CR>", "Run current file" },
+	["T"] = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
 	["R"] = {
 		"<cmd>:Lspsaga rename<CR>",
 		"Rename",
