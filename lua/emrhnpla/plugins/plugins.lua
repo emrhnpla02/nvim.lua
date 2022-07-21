@@ -107,7 +107,7 @@ return packer.startup(function(use)
 		"windwp/nvim-ts-autotag",
 	})
 
-  use "rcarriga/nvim-notify"
+	use("rcarriga/nvim-notify")
 
 	use({
 		"simrat39/rust-tools.nvim",
@@ -212,6 +212,8 @@ return packer.startup(function(use)
 	use("j-hui/fidget.nvim")
 
 	use("aserowy/tmux.nvim")
+
+	use("stevearc/dressing.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
