@@ -215,6 +215,8 @@ return packer.startup(function(use)
 
 	use("stevearc/dressing.nvim")
 
+	use("stevearc/aerial.nvim")
+
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
