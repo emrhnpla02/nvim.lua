@@ -64,7 +64,7 @@ return packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		"williamboman/nvim-lsp-installer",
-    "SmiteshP/nvim-navic",
+		"SmiteshP/nvim-navic",
 		{ "glepnir/lspsaga.nvim", branch = "main" },
 		{
 			"jose-elias-alvarez/null-ls.nvim",
@@ -214,6 +214,8 @@ return packer.startup(function(use)
 	use("stevearc/dressing.nvim")
 
 	use("stevearc/aerial.nvim")
+
+	use("folke/zen-mode.nvim")
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
