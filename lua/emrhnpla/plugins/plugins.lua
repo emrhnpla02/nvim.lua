@@ -38,6 +38,7 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	use("shaunsingh/nord.nvim")
+	use("rmehri01/onenord.nvim")
 	use("kwsp/halcyon-neovim")
 
 	use("xiyaowong/nvim-transparent")
