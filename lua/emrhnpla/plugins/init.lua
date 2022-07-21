@@ -1,6 +1,5 @@
 require("emrhnpla.plugins.impantient")
 require("emrhnpla.plugins.plugins")
-require("emrhnpla.plugins.transparent")
 require("emrhnpla.plugins.beacon")
 require("emrhnpla.plugins.cmp")
 require("emrhnpla.plugins.jester")

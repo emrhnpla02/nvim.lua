@@ -37,7 +37,7 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
-	use("arcticicestudio/nord-vim")
+	use("shaunsingh/nord.nvim")
 	use("kwsp/halcyon-neovim")
 
 	use("xiyaowong/nvim-transparent")
