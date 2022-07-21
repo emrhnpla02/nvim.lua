@@ -3,8 +3,8 @@ if not status_ok then
 	return
 end
 
-local status_ok_gps, gps = pcall(require, "nvim-gps")
-if not status_ok_gps then
+local status_ok_navic, navic = pcall(require, "nvim-navic")
+if not status_ok_navic then
 	return
 end
 
@@ -79,7 +79,7 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch, diagnostics },
 		lualine_b = { mode },
-		lualine_c = { { gps.get_location, cond = gps.is_available } },
+		lualine_c = { { navic.get_location, cond = navic.is_available } },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },

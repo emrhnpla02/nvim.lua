@@ -4,6 +4,11 @@ if not status_cmp_ok then
 	return
 end
 
+local navic_status_ok, navic = pcall(require, "nvim-navic")
+if not navic_status_ok then
+	return
+end
+
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
@@ -64,6 +69,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
+	navic.attach(client, bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return

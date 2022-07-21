@@ -64,6 +64,7 @@ return packer.startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		"williamboman/nvim-lsp-installer",
+    "SmiteshP/nvim-navic",
 		{ "glepnir/lspsaga.nvim", branch = "main" },
 		{
 			"jose-elias-alvarez/null-ls.nvim",
@@ -149,11 +150,8 @@ return packer.startup(function(use)
 	})
 
 	use({
-		{
-			"nvim-lualine/lualine.nvim",
-			requires = "kyazdani42/nvim-web-devicons",
-		},
-		"SmiteshP/nvim-gps",
+		"nvim-lualine/lualine.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
 	})
 
 	use("lukas-reineke/indent-blankline.nvim")
