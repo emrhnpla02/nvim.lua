@@ -183,7 +183,13 @@ return packer.startup(function(use)
 
 	use({ "kevinhwang91/nvim-hlslens" })
 
-	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
+	use({
+		"anuvyklack/pretty-fold.nvim",
+		{
+			"anuvyklack/fold-preview.nvim",
+			requires = "anuvyklack/nvim-keymap-amend",
+		},
+	})
 
 	use("mizlan/iswap.nvim")
 

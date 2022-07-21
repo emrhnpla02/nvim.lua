@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local status_ok_preview, pretty_fold_preview = pcall(require, "pretty-fold.preview")
+local status_ok_preview, fold_preview = pcall(require, "fold-preview")
 if not status_ok_preview then
 	return
 end
@@ -45,4 +45,4 @@ pretty_fold.setup({
 	ft_ignore = { "neorg" },
 })
 
-pretty_fold_preview.setup()
+fold_preview.setup({ border = "rounded" })
