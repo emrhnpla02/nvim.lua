@@ -170,14 +170,6 @@ local mappings = {
 		s = { "<cmd>RustSSR<CR>", "Structural Search Replace" },
 		b = { "<cmd>RustStartStandaloneServerForBuffer<CR>", "Start Standalone Server for Buffer" },
 	},
-	j = {
-		t = { "<cmd>lua require('jester').run()<CR>", "Run nearest test(s) under the cursor" },
-		f = { "<cmd>lua require('jester').run_file()<CR>", "Run current file" },
-		l = { "<cmd>lua require('jester').run_last()<CR>", "Run last test(s)" },
-		d = { "<cmd>lua require('jester').debug()<CR>", "Debug nearest test(s) under the cursor" },
-		c = { "<cmd>lua require('jester').debug_file()<CR>", "Debug current file" },
-		g = { "<cmd>lua require('jester').debug_last()<CR>", "Debug last test(s)" },
-	},
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },

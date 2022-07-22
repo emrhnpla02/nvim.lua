@@ -80,8 +80,6 @@ return packer.startup(function(use)
 		"rcarriga/nvim-dap-ui",
 	})
 
-	use("David-Kunz/jester")
-
 	use({
 		{
 			{
