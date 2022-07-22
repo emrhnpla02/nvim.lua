@@ -82,6 +82,18 @@ return packer.startup(function(use)
 
 	use({
 		{
+			"nvim-neotest/neotest",
+			requires = {
+				"antoinemadec/FixCursorHold.nvim",
+			},
+		},
+		"haydenmeade/neotest-jest",
+		"nvim-neotest/neotest-vim-test",
+		"vim-test/vim-test",
+	})
+
+	use({
+		{
 			{
 				"nvim-telescope/telescope.nvim",
 				requires = {

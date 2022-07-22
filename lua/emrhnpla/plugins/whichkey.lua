@@ -149,6 +149,16 @@ local mappings = {
 		I = { "<cmd>lua require('dap').repl.open({}, 'vsplit')<CR>", "Inspect" },
 		e = { "<cmd>lua require('dap').set_exception_breakpoints({'all'})<CR>", "Set exception breakpoints" },
 	},
+	v = {
+		name = "Test",
+		r = { "<cmd>lua require('neotest').run.run()<CR>", "Run nearest test" },
+		f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run current file" },
+		d = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>", "Debug nearest test" },
+		s = { "<cmd>lua require('neotest').run.stop()<CR>", "Stop nearest test" },
+		a = { "<cmd>lua require('neotest').run.attach()<CR>", "Attach to nearest test" },
+		o = { "<cmd>lua require('neotest').output.open({ enter = true })<CR>", "Open output" },
+		S = { "<cmd>lua require('neotest').summary.toggle()<CR>", "Toggle summary" },
+	},
 	r = {
 		name = "Rust",
 		m = {
