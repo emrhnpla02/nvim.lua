@@ -41,8 +41,6 @@ return packer.startup(function(use)
 	use("rmehri01/onenord.nvim")
 	use("kwsp/halcyon-neovim")
 
-	use("xiyaowong/nvim-transparent")
-
 	use("rainbowhxch/beacon.nvim")
 
 	use({
