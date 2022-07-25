@@ -117,6 +117,8 @@ return packer.startup(function(use)
 		"windwp/nvim-ts-autotag",
 	})
 
+	use("lewis6991/spellsitter.nvim")
+
 	use("rcarriga/nvim-notify")
 
 	use({
