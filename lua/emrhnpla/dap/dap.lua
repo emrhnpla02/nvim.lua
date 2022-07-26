@@ -10,7 +10,9 @@ vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl
 dap.adapters.node2 = {
 	type = "executable",
 	command = "node",
-	args = { os.getenv("HOME") .. "/.config/dap/vscode-node-debug2/out/src/nodeDebug.js" },
+	args = {
+		vim.fn.stdpath("data") .. "/mason/packages/node-debug2-adapter/out/src/nodeDebug.js",
+	},
 }
 
 dap.configurations.javascript = {
@@ -36,7 +38,9 @@ dap.configurations.javascript = {
 dap.adapters.firefox = {
 	type = "executable",
 	command = "node",
-	args = { os.getenv("HOME") .. "/.config/dap/vscode-firefox-debug/dist/adapter.bundle.js" },
+	args = {
+		vim.fn.stdpath("data") .. "/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js",
+	},
 }
 
 dap.configurations.typescript = {
@@ -44,7 +48,7 @@ dap.configurations.typescript = {
 	type = "firefox",
 	request = "launch",
 	reAttach = true,
-	url = "http://localhost:3000",
+	url = "http://localhost:8525",
 	webRoot = "${workspaceFolder}",
 	firefoxExecutable = "/usr/bin/firefox",
 }
@@ -52,7 +56,7 @@ dap.configurations.typescript = {
 -- .NET
 dap.adapters.coreclr = {
 	type = "executable",
-	command = "/usr/bin/netcoredbg",
+	command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
 	args = { "--interpreter=vscode" },
 }
 
@@ -62,7 +66,31 @@ dap.configurations.cs = {
 		name = "launch - netcoredbg",
 		request = "launch",
 		program = function()
-			return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+			return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
 		end,
 	},
 }
+
+-- Codelldb
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb",
+		args = { "--port", "${port}" },
+	},
+}
+
+dap.configurations.rust = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = true,
+	},
+}
+dap.configurations.cpp = dap.configurations.rust

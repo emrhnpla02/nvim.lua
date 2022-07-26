@@ -13,9 +13,10 @@ null_ls.setup({
 		formatting.prettierd,
 		formatting.rustywind,
 		formatting.rustfmt,
+		formatting.csharpier,
+		formatting.stylua,
 		diagnostics.eslint_d,
 		code_actions.eslint_d,
 		code_actions.gitsigns,
-		formatting.stylua,
 	},
 })

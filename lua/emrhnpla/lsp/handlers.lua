@@ -68,7 +68,7 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
-	if client.name ~= "tailwindcss" then
+	if client.name ~= "tailwindcss" and client.name ~= "cssmodules_ls" and client.name ~= "emmet_ls" then
 		navic.attach(client, bufnr)
 	end
 

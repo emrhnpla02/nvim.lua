@@ -62,7 +62,8 @@ return packer.startup(function(use)
 
 	use({
 		"neovim/nvim-lspconfig",
-		"williamboman/nvim-lsp-installer",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		"SmiteshP/nvim-navic",
 		{ "glepnir/lspsaga.nvim", branch = "main" },
 		{
@@ -122,7 +123,7 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 
 	use({
-		"simrat39/rust-tools.nvim",
+		{ "simrat39/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" },
 		{
 			"saecki/crates.nvim",
 		},

@@ -1,4 +1,4 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
 	return
 end
@@ -7,20 +7,42 @@ local servers = {
 	"bashls",
 	"clangd",
 	"cssls",
+	"cssmodules_ls",
 	"dockerls",
+	"emmet_ls",
 	"html",
 	"jsonls",
+	"sumneko_lua",
 	"omnisharp",
 	"rust_analyzer",
-	"sumneko_lua",
 	"tailwindcss",
 	"taplo",
 	"tsserver",
 	"volar",
+	"yamlls",
 	"zk",
 }
 
-lsp_installer.setup()
+mason.setup({
+	ui = {
+		border = "rounded",
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
+
+local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status_ok then
+	return
+end
+
+mason_lspconfig.setup({
+	ensure_installed = servers,
+	automatic_installation = true,
+})
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
@@ -46,29 +68,9 @@ for _, server in pairs(servers) do
 			return
 		end
 
-		rust_tools.setup({
-			tools = {
-				on_initialized = function()
-					vim.cmd([[
-            autocmd BufEnter,CursorHold,InsertLeave,BufWritePost *.rs silent! lua vim.lsp.codelens.refresh()
-          ]])
-				end,
-			},
-			server = {
-				on_attach = require("emrhnpla.lsp.handlers").on_attach,
-				capabilities = require("emrhnpla.lsp.handlers").capabilities,
-				settings = {
-					["rust-analyzer"] = {
-						lens = {
-							enable = true,
-						},
-						checkOnSave = {
-							command = "clippy",
-						},
-					},
-				},
-			},
-		})
+		local rust_tools_opts = require("emrhnpla.lsp.settings.rust-tools")
+
+		rust_tools.setup(rust_tools_opts)
 
 		goto continue
 	end

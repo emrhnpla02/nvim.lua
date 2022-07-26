@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-require("emrhnpla.lsp.lsp-installer")
+require("emrhnpla.lsp.mason")
 require("emrhnpla.lsp.handlers").setup()
 require("emrhnpla.lsp.null-ls")
 require("emrhnpla.lsp.lspsaga")
