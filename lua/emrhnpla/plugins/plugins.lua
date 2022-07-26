@@ -37,9 +37,13 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
-	use("shaunsingh/nord.nvim")
-	use("rmehri01/onenord.nvim")
-	use("kwsp/halcyon-neovim")
+	use({
+		"ellisonleao/gruvbox.nvim",
+		"folke/tokyonight.nvim",
+		"shaunsingh/nord.nvim",
+		"rmehri01/onenord.nvim",
+		"kwsp/halcyon-neovim",
+	})
 
 	use("rainbowhxch/beacon.nvim")
 
